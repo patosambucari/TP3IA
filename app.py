@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import pickle
-from hopfield_network import HopfieldNetwork
+from hopfield import HopfieldNetwork
 
 app = Flask(__name__)
 
