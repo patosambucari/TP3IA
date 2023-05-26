@@ -7,8 +7,19 @@ class HopfieldNetwork:
 
     def train(self, patterns):
         for pattern in patterns:
+            pattern = np.array(pattern)
             pattern = pattern.reshape(-1, 1)
             self.weights += np.dot(pattern, pattern.T)
+            np.fill_diagonal(self.weights, 0)
+
+    def recall(self, pattern):
+        pattern = np.array(pattern)
+        pattern = pattern.reshape(-1, 1)
+        old_pattern = np.zeros(pattern.shape)
+        while not np.array_equal(old_pattern, pattern):
+            old_pattern = pattern.copy()
+            pattern = np.sign(np.dot(self.weights, pattern))
+        return pattern.flatten()
 
     def predict(self, image):
         image = image.reshape(-1, 1)
