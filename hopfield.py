@@ -75,3 +75,10 @@ patterns = [
      -1, 1, -1, -1, -1, -1, -1, -1, 1, -1,
      1, -1, -1, -1, -1, -1, -1, -1, -1, 1]
 ]
+
+# Crear una instancia de la red de Hopfield
+network = HopfieldNetwork(pattern_size=100)
+
+# Entrenar la red con los patrones de entrenamiento
+network.train(patterns)
+
