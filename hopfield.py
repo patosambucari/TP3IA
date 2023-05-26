@@ -82,3 +82,23 @@ network = HopfieldNetwork(pattern_size=100)
 # Entrenar la red con los patrones de entrenamiento
 network.train(patterns)
 
+# Imagen de prueba
+test_image = np.array([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+                       -1,  1,  1,  1,  1,  1,  1,  1,  1, -1,
+                       -1,  1, -1, -1, -1, -1, -1, -1,  1, -1,
+                       -1,  1, -1, -1, -1, -1, -1, -1,  1, -1,
+                       -1,  1, -1, -1, -1, -1, -1, -1,  1, -1,
+                       -1,  1, -1, -1, -1, -1, -1, -1,  1, -1,
+                       -1,  1, -1, -1, -1, -1, -1, -1,  1, -1,
+                       -1,  1, -1, -1, -1, -1, -1, -1,  1, -1,
+                       -1,  1,  1,  1,  1,  1,  1,  1,  1, -1,
+                       -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+
+# Realizar la predicción utilizando la red de Hopfield
+predicted_image = network.predict(test_image)
+
+# Imprimir los resultados
+print("Imagen original:")
+print(test_image.reshape(10, 10))
+print("\nImagen reconstruida:")
+print(predicted_image.reshape(10, 10))
